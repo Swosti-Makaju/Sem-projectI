@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - VeloRent</title>
+    <link rel="stylesheet" href="css/faq.css">
+</head>
+<body>
+
+<div class="logo">
+    <h2>VeloRent</h2>
+</div>
+
+<div class="navbar">
+    <a class="nav" href="home.html">Home</a>
+    <a class="nav" href="about.html">About</a>
+    <a class="nav" href="contact.html">Contact</a>
+    <a class="nav" href="faq.html">FAQ</a>
+    <a class="nav" href="login_form.php">Login</a>
+</div>
+
+<div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <p class="faq-question">1. What is the minimum age to rent a vehicle?</p>
+        <p class="faq-answer">The minimum age to rent a vehicle is 21 years old with a valid driver's license.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-question">2. Do I need to provide a security deposit?</p>
+        <p class="faq-answer">Yes, a refundable security deposit is required for all rentals.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-question">3. What documents do I need to rent a vehicle?</p>
+        <p class="faq-answer">You need a valid driver's license and an ID proof such as a passport or national ID card.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-question">4. Can I extend my rental period?</p>
+        <p class="faq-answer">Yes, you can extend your rental period by contacting our customer service.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-question">5. What is the fuel policy?</p>
+        <p class="faq-answer">The vehicle should be returned with the same amount of fuel as when it was picked up.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-question">6. Are there any mileage limits?</p>
+        <p class="faq-answer">Mileage limits may apply depending on the vehicle and rental duration. Please check the terms before booking.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-question">7. Can I rent a vehicle for a one-way trip?</p>
+        <p class="faq-answer">Yes, one-way rentals are available, but additional fees may apply. Please check with our customer service.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-question">8. What happens if I return the vehicle late?</p>
+        <p class="faq-answer">Late returns may incur additional charges. Please inform us as soon as possible if you expect to return the vehicle later than planned.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-question">9. Is insurance included in the rental cost?</p>
+        <p class="faq-answer">Basic insurance coverage is included, but you may opt for additional coverage for extra protection.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-question">10. Can I add an additional driver?</p>
+        <p class="faq-answer">Yes, you can add an additional driver for a nominal fee. Both drivers must be present at the time of rental and provide valid licenses.</p>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 ValoRent. All rights reserved.</p>
+    <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isVisible = answer.style.display === 'block';
+
+            // Hide all answers
+            document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+
+            // Toggle the clicked answer
+            answer.style.display = isVisible ? 'none' : 'block';
+        });
+    });
+});
+</script>
+
+</body>
+</html>

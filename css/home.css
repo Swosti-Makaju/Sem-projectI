@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.logo {
+    text-align: center;
+    padding: 1px;
+    background-color: #333;
+    color: white;
+    font-size: 24px;
+}
+
+.navbar {
+    background-color: #444;
+    overflow: hidden;
+    text-align: center;
+}
+
+.navbar .nav {
+    display: inline-block;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .nav:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.pic {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: 560px;
+}
+
+.dis {
+    text-align: center;
+    font-size: 18px;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+.para{
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    font-size: 24px;
+}
+
+.vehicle-section {
+    align-items: center;
+    margin-top: 50px;
+}
+
+ .vehicle-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.vehicle-section h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.vehicle-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.vehicle-item {
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.vehicle-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.vehicle-item h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.vehicle-item p {
+    font-size: 16px;
+    color: #666;
+} 
+
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
