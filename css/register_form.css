@@ -64,7 +64,7 @@ body {
 
 .form-container form input,
 .form-container form select {
-    width: 98%;
+    width: 94%;
     padding: 10px 10px;
     font-size: 17px;
     margin: 8px 0;
@@ -77,15 +77,15 @@ body {
 }
 
 .form-container form .form-btn {
-    background: #fbd0d9;
-    color: crimson;
+    background: #353b41;
+    color: rgb(201, 204, 212);
     text-transform: capitalize;
     font-size: 20px;
     cursor: pointer;
 }
 
 .form-container form .form-btn:hover {
-    background: crimson;
+    background: 353b41;
     color: #fff;
 }
 
@@ -96,7 +96,10 @@ body {
 }
 
 .form-container form p a {
-    color: crimson;
+    color: rgb(32, 30, 30);
+}
+.form-container form p a:hover{
+    color: rgb(102, 63, 63);
 }
 
 .form-container form .error-msg {
