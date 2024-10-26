@@ -1,36 +1,53 @@
 <?php
+@include './config.php';
 
-@include 'config.php';
+// Initialize variables
+$error = [];
 
-if(isset($_POST['submit'])){
+// Check if the form is submitted
+if (isset($_POST['submit'])) {
+    // Get user inputs
+    $username = $_POST['username']; // Change from 'name' to 'username'
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = md5($_POST['password']);
-   $cpass = md5($_POST['cpassword']);
-   $user_type = $_POST['user_type'];
+    // Validate inputs
+    if (empty($username) || empty($email) || empty($password) || empty($cpassword)) {
+        $error[] = 'All fields are required.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error[] = 'Invalid email format.';
+    } elseif (strlen($password) < 8) {
+        $error[] = 'Password must be at least 8 characters long.';
+    } elseif ($password !== $cpassword) {
+        $error[] = 'Passwords do not match.';
+    } else {
+        // Check if the email already exists
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+        if ($result->num_rows > 0) {
+            $error[] = 'Email already exists. Please use a different email.';
+        } else {
+            // Hash the password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            
+            // Insert the new user into the database
+            $stmt = $conn->prepare("INSERT INTO Users (username, email, password) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $username, $email, $hashed_password);
 
-   $result = mysqli_query($conn, $select);
-
-   if(mysqli_num_rows($result) > 0){
-
-      $error[] = 'user already exist!';
-
-   }else{
-
-      if($pass != $cpass){
-         $error[] = 'password not matched!';
-      }else{
-         $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
-         mysqli_query($conn, $insert);
-         header('location:login_form.php');
-      }
-   }
-
-};
-
+            if ($stmt->execute()) {
+                // Registration successful, redirect to login page or home page
+                header("Location: ./user/login_form.php");
+                exit();
+            } else {
+                $error[] = 'Registration failed. Please try again.';
+            }
+        }
+    }
+}
 
 ?>
 
@@ -41,10 +58,7 @@ if(isset($_POST['submit'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Register Form - VeloRent</title>
-
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/register_form.css">
-
 </head>
 <body>
    
@@ -61,25 +75,24 @@ if(isset($_POST['submit'])){
 </div>
 
 <div class="form-container">
-
    <form action="" method="post">
       <h3>Register Now</h3>
       <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
-         };
-      };
+      // Display error messages
+      if (!empty($error)) {
+         foreach ($error as $err) {
+            echo '<span class="error-msg">' . $err . '</span>';
+         }
+      }
       ?>
-      <input type="text" name="name" required placeholder="Enter your name">
+      <input type="text" name="username" required placeholder="Enter your username"> <!-- Change 'name' to 'username' -->
       <input type="email" name="email" required placeholder="Enter your email">
       <input type="password" name="password" required placeholder="Enter your password">
       <input type="password" name="cpassword" required placeholder="Confirm your password">
      
       <input type="submit" name="submit" value="Register Now" class="form-btn">
-      <p>Already have an account? <a href="login_form.php">Login now</a></p>
+      <p>Already have an account? <a href="./user/login_form.php">Login now</a></p>
    </form>
-
 </div>
 
 <div class="footer">
