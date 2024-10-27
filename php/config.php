@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-$conn = mysqli_connect('localhost', 'root', '', 'user_db', 80443);
+$conn = mysqli_connect('localhost', 'root', '', 'user_db' );
 
 
 // Check connection
