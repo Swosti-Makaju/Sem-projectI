@@ -23,7 +23,7 @@ body {
 }
 
 .navbar .logo h2 {
-    color: #ff7200;
+    color: #007bff; /* Changed to blue */
     font-family: 'Lora', serif;
     font-size: 34px;
     letter-spacing: 1px;
@@ -45,7 +45,7 @@ body {
 }
 
 .navbar .menu ul li a:hover {
-    color: #ff7200;
+    color: #007bff; /* Changed to blue */
 }
 
 /* Hero Section */
@@ -94,7 +94,7 @@ body {
 
 .about-section h2 {
     font-family: 'Lora', serif;
-    color: #ff7200;
+    color: #007bff; /* Changed to blue */
     font-size: 36px;
     margin-bottom: 30px;
 }
@@ -117,7 +117,7 @@ body {
 
 .team h2 {
     font-family: 'Lora', serif;
-    color: #ff7200;
+    color: #007bff; /* Changed to blue */
     font-size: 36px;
     margin-bottom: 40px;
 }
@@ -158,26 +158,6 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer */
-.footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-    font-size: 16px;
-}
-
-.footer a {
-    text-decoration: none;
-    color: #ff7200;
-    font-weight: 600;
-}
-
-.footer a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar .menu ul {
@@ -202,4 +182,31 @@ body {
         font-size: 18px;
         padding: 10px;
     }
+}
+
+footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.socials a {
+    color: white;
+    font-size: 20px;
+    margin: 1px;
+    transition: color 0.3s;
+}
+
+.socials a:hover {
+    color: #66b3ff; /* Lighter blue */
 }

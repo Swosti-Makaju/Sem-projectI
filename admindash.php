@@ -105,24 +105,19 @@
             background: #333;
             color: #fff;
             text-align: center;
-            padding: 15px 0;
+            padding: 5px 0;
         }
+
         footer p {
             margin: 0;
             font-size: 14px;
+            margin-bottom: 12px;
         }
-        footer .footer-links a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        footer .footer-links a:hover {
-            color: #66b3ff; /* Lighter Blue */
-        }
+
         .socials a {
             color: white;
             font-size: 20px;
-            margin: 0 8px;
+            margin: 1px;
             transition: color 0.3s;
         }
         .socials a:hover {
@@ -134,7 +129,7 @@
 
 <div class="main-content">
     <div class="navbar">
-        <h2 class="logo">ValoRent</h2>
+        <h2 class="logo">VeloRent</h2>
         <div class="menu">
             <ul>
                 <li><a href="adminvehicle.php">VEHICLE MANAGEMENT</a></li>
@@ -174,7 +169,7 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 ValoRent. All Rights Reserved.</p>
+    <p>&copy; 2024 VeloRent. All Rights Reserved.</p>
   
     <div class="socials">
         <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
