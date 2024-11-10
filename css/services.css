@@ -1,0 +1,194 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo h2 {
+    color: #ff7200;
+    font-family: 'Lora', serif;
+    font-size: 34px;
+    letter-spacing: 1px;
+}
+
+.navbar .menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar .menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu ul li a:hover {
+    color: #ff7200;
+}
+
+/* Hero Section */
+.hero {
+    background: url('services-hero.jpg') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-text {
+    text-align: center;
+    color: #fff;
+    font-family: 'Lora', serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+
+.hero-text p {
+    font-size: 22px;
+    margin-top: 15px;
+    font-weight: 300;
+}
+
+/* Services Section */
+.services {
+    padding: 80px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.services h2 {
+    font-family: 'Lora', serif;
+    color: #ff7200;
+    font-size: 36px;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.service-card {
+    display: inline-block;
+    width: 300px;
+    text-align: center;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.service-card .service-icon {
+    font-size: 40px;
+    color: #ff7200;
+    margin-bottom: 20px;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover .service-icon {
+    color: #ff4500;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 16px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #ff7200;
+    font-weight: 600;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-text {
+        font-size: 36px;
+    }
+
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .services h2 {
+        font-size: 32px;
+    }
+}
