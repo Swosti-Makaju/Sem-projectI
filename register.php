@@ -144,8 +144,21 @@ input#cpsw{
   content: "✖";
 }</style> 
 
-    <button id="back"><a href="index.php">HOME</a></button>
-    <h1 id="fam">JOIN OUR FAMILY OF CARS!</h1>
+<div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Velorent</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="aboutus.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                    <li><button class="adminbtn"><a href="adminlogin.php">Admin Login</a></button></li>
+                </ul>
+            </div>
+        </div>
+
  <div class="main">
         
         <div class="register">
@@ -292,5 +305,15 @@ myInput.onkeyup = function() {
         return true;
     }
 </script>
+<footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Velorent. All Rights Reserved.</p>
+            <div class="socials">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

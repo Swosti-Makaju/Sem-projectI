@@ -31,11 +31,7 @@ body{
     height: 109vh; 
     animation: infiniteScrollBg 50s linear infinite;
 } */
-.navbar{
-    width: 1200px;
-    height: 75px;
-    margin: auto;
-}
+
 
 .icon{
     width:200px;
@@ -43,50 +39,47 @@ body{
     height : 70px;
 }
 
-.logo{
-    color: #ff7200;
-    font-size: 35px;
-    font-family: Arial;
-    padding-left: 20px;
-    float:left;
-    padding-top: 10px;
-
-}
-.menu{
-    width: 400px;
-    float: left;
-    height: 70px;
-
-}
-
-ul{
-    float: left;
+    .navbar {
+    width: 100%;
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-ul li{
+.navbar .logo {
+    color: pink;
+    font-size: 36px;
+    font-family: 'Lora', serif;
+}
+
+.menu ul {
+    display: flex;
+    gap: 25px;
     list-style: none;
-    margin-left: 62px;
-    margin-top: 27px;
-    font-size: 14px;
-
 }
 
-ul li a{
+.menu ul li {
+    display: inline-block;
+}
+
+.menu ul li a, .adminbtn a {
     text-decoration: none;
-    color: black;
-    font-family: Arial;
-    font-weight: bold;
-    transition: 0.4s ease-in-out;
-
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: color 0.3s;
 }
 
-ul li a:hover{
-    color:orange;
-
+.menu ul li a:hover, .adminbtn a:hover {
+    color: #ff7200;
 }
+
+
 .box{
     
     position:center;
@@ -200,6 +193,7 @@ ul li a:hover{
 }
 
 .phello{
+    color: white;
     width: 200px;
     margin-left: -50px;
     padding: 0px;
@@ -243,7 +237,7 @@ ul li a:hover{
     <div class="main">
         <div class="navbar">
             <div class="icon">
-                <h2 class="logo">CaRs</h2>
+                <h2 class="logo">Velorent</h2>
             </div>
             <div class="menu">
                
