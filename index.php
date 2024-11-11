@@ -54,7 +54,7 @@
             <div class="menu">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="aboutus.html">About</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contactus.html">Contact</a></li>
                     <li><button class="adminbtn"><a href="adminlogin.php">Admin Login</a></button></li>

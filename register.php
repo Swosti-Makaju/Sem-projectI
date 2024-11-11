@@ -54,7 +54,7 @@ if (isset($_POST['regs'])) {
     <div class="menu">
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.html">About</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="contactus.html">Contact</a></li>
             <li><button class="adminbtn"><a href="adminlogin.php">Admin Login</a></button></li>
@@ -99,13 +99,6 @@ if (isset($_POST['regs'])) {
     </div>
 </div>
 
-<div id="message">
-    <h3>Password must contain the following:</h3>
-    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-    <p id="number" class="invalid">A <b>number</b></p>
-    <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-</div>
 
 <script>
     var myInput = document.getElementById("psw");

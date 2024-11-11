@@ -37,7 +37,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background:orange url("images/paym.jpg") center/cover;
+  background: blue url("images/paym.jpg") center/cover; /* Changed to blue */
   overflow: hidden;
 }
 
@@ -135,20 +135,17 @@ body {
 
 
   
-.pay{
-  width:200px;
-  background: #ff7200;
-
-  border:none;
+.pay {
+  width: 200px;
+  background: #007bff; /* Changed to blue */
+  border: none;
   height: 40px;
   font-size: 18px;
   border-radius: 5px;
   cursor: pointer;
-  color:white;
+  color: white;
   transition: 0.4s ease;
   margin-left: 100px;
- 
-
 }
 
 
@@ -159,22 +156,16 @@ body {
   
 }
 
-
-.btn{
-  width:200px;
-  background: #ff7200;
-
-  border:none;
+.btn {
+  width: 200px;
+  background: #007bff; /* Changed to blue */
+  border: none;
   height: 40px;
   font-size: 18px;
   border-radius: 5px;
   cursor: pointer;
-  color:white;
+  color: white;
   transition: 0.4s ease;
- 
-  
-  
-
 }
 
 

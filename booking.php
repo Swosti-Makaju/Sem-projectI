@@ -1,3 +1,60 @@
+
+<?php 
+
+    session_start();
+    require_once('connection.php');
+ 
+    $carid=$_GET['id'];
+    
+    $sql="select *from cars where CAR_ID='$carid'";
+    $cname = mysqli_query($con,$sql);
+    $email = mysqli_fetch_assoc($cname);
+    
+    $value = $_SESSION['email'];
+    $sql="select * from users where EMAIL='$value'";
+    $name = mysqli_query($con,$sql);
+    $rows=mysqli_fetch_assoc($name);
+    $uemail=$rows['EMAIL'];
+    $carprice=$email['PRICE'];
+    if(isset($_POST['book'])){
+       
+        $bplace=mysqli_real_escape_string($con,$_POST['place']);
+        $bdate=date('Y-m-d',strtotime($_POST['date']));;
+        $dur=mysqli_real_escape_string($con,$_POST['dur']);
+        $phno=mysqli_real_escape_string($con,$_POST['ph']);
+        $des=mysqli_real_escape_string($con,$_POST['des']);
+        $rdate=date('Y-m-d',strtotime($_POST['rdate']));
+         
+        if(empty($bplace)|| empty($bdate)|| empty($dur)|| empty($phno)|| empty($des)|| empty($rdate)){
+            echo '<script>alert("please fill the place")</script>';
+
+        }
+        else{
+            if($bdate<$rdate){
+            $price=($dur*$carprice);
+            $sql="insert into booking (CAR_ID,EMAIL,BOOK_PLACE,BOOK_DATE,DURATION,PHONE_NUMBER,DESTINATION,PRICE,RETURN_DATE) values($carid,'$uemail','$bplace','$bdate',$dur,$phno,'$des',$price,'$rdate')";
+            $result = mysqli_query($con,$sql);
+            
+            if($result){
+                
+                $_SESSION['email'] =$uemail;
+                header("Location: payment.php");
+            }
+            else{
+                echo '<script>alert("please check the connection")</script>';
+            }
+        }
+        else{
+            echo  '<script>alert("please enter a correct rturn date")</script>';
+        }
+    
+        }
+    }
+    
+    ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,20 +91,20 @@ div.main{
 .btnn{
     width: 240px;
     height: 40px;
-    background: #ff7200;
-    border:none;
+    background: #0000ff; /* Changed to blue */
+    border: none;
     margin-top: 30px;
     margin-left: 30px;
     font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
-    color:#fff;
+    color: #fff;
     transition: 0.4s ease;
 }
 
 .btnn:hover{
     background: #fff;
-    color:#ff7200;
+    color:blue;
 }
 
 .btnn a{
@@ -62,15 +119,15 @@ h2{
     font-family: sans-serif;
 
 }
-div.register{
-    background-color: rgba(0,0,0,0.6);
+div.register {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     width: 100%;
     font-size: 18px;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
     color: #fff;
-
+    padding-bottom: 20px; /* Add space at the bottom of the form */
 }
 
 form#register{
@@ -125,13 +182,12 @@ input#datefield{
     
     
 }
-.main{
+.main {
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0)50%, rgba(0,0,0,0)50%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 50%);
     background-position: center;
     background-size: cover;
-    
-  
+    margin-bottom: 100px; /* Adjust this value for more or less gap */
 }
 .navbar{
     width: 1200px;
@@ -146,7 +202,7 @@ input#datefield{
 }
 
 .logo{
-    color: #ff7200;
+    color: blue;
     font-size: 35px;
     font-family: Arial;
     padding-left: 20px;
@@ -188,30 +244,27 @@ ul li a{
 }
 
 ul li a:hover{
-    color:orange;
+    color:blue;
 
 }
 
 .nn{
-    width:100px;
-    background: #ff7200;
-
-    border:none;
+    width: 100px;
+    background: #0000ff; /* Changed to blue */
+    border: none;
     height: 40px;
     font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
-    color:white;
+    color: white;
     transition: 0.4s ease;
-    
-
 }
+
 
 .nn a{
     text-decoration: none;
     color: black;
     font-weight: bold;
-    
 }
 
 .circle{
@@ -224,6 +277,37 @@ ul li a:hover{
     margin-left: -50px;
     padding: 0px;
 }
+footer {
+    background-color: rgba(0, 0, 0, 0.6); /* Make footer semi-transparent */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+footer .socials {
+    margin-top: 10px;
+}
+
+footer .socials a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: 0.3s ease;
+}
+
+footer .socials a:hover {
+    color: #1e90ff; /* Blue color on hover */
+}
 
 
 
@@ -231,67 +315,13 @@ ul li a:hover{
 </style>
 
 
-<?php 
-
-    require_once('connection.php');
-    session_start();
- 
-    $carid=$_GET['id'];
-    
-    $sql="select *from cars where CAR_ID='$carid'";
-    $cname = mysqli_query($con,$sql);
-    $email = mysqli_fetch_assoc($cname);
-    
-    $value = $_SESSION['email'];
-    $sql="select * from users where EMAIL='$value'";
-    $name = mysqli_query($con,$sql);
-    $rows=mysqli_fetch_assoc($name);
-    $uemail=$rows['EMAIL'];
-    $carprice=$email['PRICE'];
-    if(isset($_POST['book'])){
-       
-        $bplace=mysqli_real_escape_string($con,$_POST['place']);
-        $bdate=date('Y-m-d',strtotime($_POST['date']));;
-        $dur=mysqli_real_escape_string($con,$_POST['dur']);
-        $phno=mysqli_real_escape_string($con,$_POST['ph']);
-        $des=mysqli_real_escape_string($con,$_POST['des']);
-        $rdate=date('Y-m-d',strtotime($_POST['rdate']));
-         
-        if(empty($bplace)|| empty($bdate)|| empty($dur)|| empty($phno)|| empty($des)|| empty($rdate)){
-            echo '<script>alert("please fill the place")</script>';
-
-        }
-        else{
-            if($bdate<$rdate){
-            $price=($dur*$carprice);
-            $sql="insert into booking (CAR_ID,EMAIL,BOOK_PLACE,BOOK_DATE,DURATION,PHONE_NUMBER,DESTINATION,PRICE,RETURN_DATE) values($carid,'$uemail','$bplace','$bdate',$dur,$phno,'$des',$price,'$rdate')";
-            $result = mysqli_query($con,$sql);
-            
-            if($result){
-                
-                $_SESSION['email'] =$uemail;
-                header("Location: payment.php");
-            }
-            else{
-                echo '<script>alert("please check the connection")</script>';
-            }
-        }
-        else{
-            echo  '<script>alert("please enter a correct rturn date")</script>';
-        }
-    
-        }
-    }
-    
-    ?>
-
 
 
     
        <div class="hai">
             <div class="navbar">
                 <div class="icon">
-                    <h2 class="logo">CaRs</h2>
+                    <h2 class="logo">VeloRent</h2>
                 </div>
                 <div class="menu" >
                     <ul>
@@ -394,7 +424,18 @@ ul li a:hover{
 
     </script>
     
-    
+     
+<footer>
+    <p>&copy; 2024 VeloRent. All Rights Reserved.</p>
+  
+    <div class="socials">
+        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     
     
 </body>
