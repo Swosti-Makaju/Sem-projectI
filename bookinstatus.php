@@ -12,16 +12,14 @@
 *{
     margin: 0;
     padding: 0;
-
 }
 
 body{
     background: url("images/carbg2.jpg");
     background-position: center;
-   
 }
+
 .box{
-    
     position:center;    
     top: 50%;
     left: 50%;
@@ -37,10 +35,7 @@ body{
     height: 250px;
     margin-top: 100px;
     margin-left: 350px;
-  
-    
 }
-
 
 .box .content{
     margin-left: 5px;
@@ -50,7 +45,7 @@ body{
 .box .button{
     width: 240px;
     height: 40px;
-    background: #ff7200;
+    background: #007bff; /* Changed to #007bff */
     border:none;
     margin-top: 30px;
     font-size: 18px;
@@ -63,8 +58,7 @@ body{
 .utton{
     width: 200px;
     height: 40px;
-   
-    background: #ff7200;
+    background: #007bff; /* Changed to #007bff */
     border:none;
     font-size: 18px;
     border-radius: 5px;
@@ -74,6 +68,7 @@ body{
     margin-top: 10px;
     margin-left: 10px;
 }
+
 .utton a{
     text-decoration: none;
     color: white;
@@ -93,15 +88,13 @@ ul li{
     margin-left: 200px;
     margin-top: -130px;
     font-size: 35px;
-
 }
+
 .name{
     font-weight: bold;
 }
 
 </style>
-
-
 
 <?php
     require_once('connection.php');
@@ -123,31 +116,19 @@ ul li{
     $sql3="select * from cars where CAR_ID='$car_id'";
     $name3 = mysqli_query($con,$sql3);
     $rows3=mysqli_fetch_assoc($name3);
-
-
-
-
-
 ?>
-   <ul><li> <button  class="utton"><a href="cardetails.php">Go to Home</a></button></li><li class="name">HELLO! <?php echo $rows2['FNAME']." ".$rows2['LNAME']?></li>
 
+   <ul><li> <button  class="utton"><a href="cardetails.php">Go to Home</a></button></li><li class="name">HELLO! <?php echo $rows2['FNAME']." ".$rows2['LNAME']?></li></ul>
 
-
-
-</ul>
     <div class="box">
          <div class="content">
              <h1>CAR NAME : <?php echo $rows3['CAR_NAME']?></h1><br>
              <h1>NO OF DAYS : <?php echo $rows['DURATION']?></h1><br>
              <h1>BOOKING STATUS : <?php echo $rows['BOOK_STATUS']?></h1><br>
-             
          </div>
      </div>
 
-
-
-<?php }
-?>
+<?php } ?>
     
 </body>
 </html>

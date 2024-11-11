@@ -204,9 +204,9 @@ footer p {
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="aboutus2.html">ABOUT</a></li>
-                <li><a href="contactus2.html">CONTACT</a></li>
+                <li><a href="index.php">HOME</a></li>
+                <li><a href="aboutus.html">ABOUT US</a></li>
+                <li><a href="contactus.html">CONTACT</a></li>
                 <li><a href="feedback/Feedbacks.php">FEEDBACK</a></li>
                 <li><button class="nn"><a href="index.php">LOGOUT</a></button></li>
                 <li><img src="images/profile.png" class="circle" alt="Alps"></li>
