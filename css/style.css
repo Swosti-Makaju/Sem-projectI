@@ -237,32 +237,59 @@ body {
     background: white;
     color: #007bff; /* Changed to blue */
 }
+
+/* Footer */
+
 footer {
-    background-color: rgba(0, 0, 0, 0.6); /* Transparent black, similar to navbar */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #2c2a2a;
     color: #fff;
     text-align: center;
-    padding: 20px;
-    bottom: 0;
-    width: 100%;
-    position: relative;
+    padding: 5px 0;
 }
 
 footer p {
     margin: 0;
     font-size: 14px;
+    margin-bottom: 12px;
 }
 
-footer .socials {
-    margin-top: 10px;
-}
-
-footer .social-icon {
+.socials a {
     color: white;
     font-size: 20px;
-    margin: 0 8px;
+    margin: 1px;
     transition: color 0.3s;
 }
 
-footer .social-icon:hover {
-    color: #007bff; /* Changed to blue */
+.socials a:hover {
+    color: #66b3ff; /* Lighter blue */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-text {
+        font-size: 36px;
+    }
+
+    .team {
+        padding: 40px 20px;
+    }
+
+    .team-member {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .about-section p {
+        font-size: 18px;
+        padding: 10px;
+    }
 }

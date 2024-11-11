@@ -63,7 +63,7 @@
         </div>
 
         <div class="content">
-            <h1>Rent Your <br><span>Dream Car</span></h1>
+            <h1>Rent Your <br><span>Dream Vehicle</span></h1>
             <p class="par">Live the life of Luxury.<br>
                 Rent a car of your wish from our vast collection.<br>Enjoy every moment with your family.<br>
                 Join us to make this family vast.</p>

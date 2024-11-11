@@ -14,10 +14,12 @@
     padding: 0;
 }
 
-body{
-    background: url("images/carbg2.jpg");
+body {
+    background: url("images/lamborghini.webp") no-repeat center center fixed;
+    background-size: cover;  /* This ensures the image covers the entire screen */
     background-position: center;
 }
+
 
 .box{
     position:center;    
